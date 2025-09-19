@@ -1,0 +1,35 @@
+class Solution {
+  public:
+    int gcd(int a, int b) {
+  
+        if(a==0)return b;
+        if(b==0)return a;
+        if(a==b)return a;
+        
+        if(a > b){
+            return gcd(a-b, b);
+        }
+        else{
+            return gcd(a, b-a);
+        }
+    }
+};
+O( log min(a,b) )
+
+
+
+/*********** Naive approach **************/
+
+int gcd(int a, int b) {
+    int res = min(a, b);
+
+    while (res > 1) {
+        if (a % res == 0 && b % res == 0)
+            break;
+        res--;
+    }
+	return res;
+}
+O( min(a,b) )
+
+
